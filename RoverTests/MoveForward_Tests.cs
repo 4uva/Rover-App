@@ -14,12 +14,21 @@ namespace RoverTests
         //    when the rover moves forward,
         //    the rover is in position 0,1.
         [TestMethod]
-        public void MoveForward()
+        public void StepNorth()
         {
             Rover rover = new Rover(1, 1, RoverFacing.North);
             rover.MoveForward();
-            Assert.AreEqual(2, rover.RoverPositionX);
+            Assert.AreEqual(0, rover.RoverPositionX);
             Assert.AreEqual(1, rover.RoverPositionY);
+        }
+
+        [TestMethod]
+        public void StepEast()
+        {
+            Rover rover = new Rover(1, 1, RoverFacing.East);
+            rover.MoveForward();
+            Assert.AreEqual(1, rover.RoverPositionX);
+            Assert.AreEqual(2, rover.RoverPositionY);
         }
     }
 }
