@@ -3,7 +3,8 @@
 - There is a single file called **Rover.cs** containing a very simple, but untested solution;
 - You need to refactor it to a more maintainable and testable code;
 - The program should be written using **test driven development**, following the red, green, refactor steps;
-- Please use one or more **design patterns** when developing your solution. This is your opportunity to show your skills, use it well;
+- Please use one or more **design patterns** when developing your solution. This is your opportunity 
+to show your skills, use it well;
 - Don't sacrifice tests to complete the solution, this will result in a fail;
 - We don't mind if the test is incomplete, we are only interested in seeing your approach;
 - We are looking for the solution to be well factored and to adhere to the **SOLID** principles.
@@ -13,7 +14,8 @@
 
 # Tech Test
 
-A rover has been developed to map out the landscape of Mars. The rover is a robot which can move on a 5x5 grid controlled by simple commands.
+A rover has been developed to map out the landscape of Mars. The rover is a robot which can move
+on a 5x5 grid controlled by simple commands.
 Write a program which controls the movement of the Mars rover.
 
 ## The application should be a console app which prompts the controller for the instruction.
@@ -50,7 +52,8 @@ As a controller user I want the rover to be able to rotate right
 
 As a controller user I want the rover to be able to move forward
 
-- Given the Is at position 1.1 and the rover is facing North, when the rover moves forward, the rover is in position 0,1.
+- Given the Is at position 1.1 and the rover is facing North, when the rover moves forward, the
+  rover is in position 0,1.
 
 As a controller I want to be able to see the rover’s position once it has moved
 
@@ -58,4 +61,5 @@ As a controller I want to be able to see the rover’s position once it has moved
 
 As a controller I don’t want the rover to be able to move outside the confines of the grid
 
-- Given the Rover is facing West and is at position (0,0), when the user tries to move forward, the rovers position does not change
+- Given the Rover is facing West and is at position (0,0), when the user tries to move forward,
+  the rovers position does not change
