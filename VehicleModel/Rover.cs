@@ -22,13 +22,13 @@ namespace VehicleModel
             switch (RoverFacing)
             {
                 case RoverFacing.North:
-                    RoverPositionX++;
+                    RoverPositionX--;
                     break;
                 case RoverFacing.East:
                     RoverPositionY++;
                     break;
                 case RoverFacing.South:
-                    RoverPositionX--;
+                    RoverPositionX++;
                     break;
                 case RoverFacing.West:
                     RoverPositionY--;
