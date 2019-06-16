@@ -2,27 +2,51 @@
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Rover_ConsoleApp;
-
+using VehicleModel;
 
 namespace RoverTests
-{ [TestClass]
-    class Playground_Tests
+{
+    [TestClass]
+    public class Playground_Tests
     {
         [TestMethod]
-        public bool IsPointInside()
-            {
-            PlayGround playground = new PlayGround(0, 0, 3, 3 );
-            playground.IsPointInside();
-                Assert.AreEqual(1, 1, true);
-
-           
+        public void Inside()
+        {
+            PlayGround playground = new PlayGround(0, 0, 3, 3);
+            var result = playground.IsPointInside(1, 1);
+            Assert.AreEqual(result, true);
         }
-            //        пример теста
-            //1) мы создаём Playground с границами xmin = 0, ymin = 0, xmax = 3, ymax = 3, спрашиваем, внутри ли точка(1, 1), ожидаемый ответ — да
-            //2) мы создаём Playground с границами xmin = 0, ymin = 0, xmax = 3, ymax = 3, спрашиваем, внутри ли точка(0, 3), ожидаемый ответ — да
-            //3) мы создаём Playground с границами xmin = 0, ymin = 0, xmax = 3, ymax = 3, спрашиваем, внутри ли точка(-1, 2), ожидаемый ответ — нет
-            //4) мы создаём Playground с границами xmin = 0, ymin = 0, xmax = 3, ymax = 3, спрашиваем, внутри ли точка(2, 4), ожидаемый ответ — нет
-            //5) мы создаём Playground с границами xmin = 0, ymin = 0, xmax = 3, ymax = 3, спрашиваем, внутри ли точка(5, -1), ожидаемый ответ — нет
+
+        [TestMethod]
+        public void OnBorder()
+        {
+            PlayGround playground = new PlayGround(0, 0, 3, 3);
+            var result = playground.IsPointInside(0, 3);
+            Assert.AreEqual(result, true);
+        }
+
+        [TestMethod]
+        public void TooSmallX()
+        {
+            PlayGround playground = new PlayGround(0, 0, 3, 3);
+            var result = playground.IsPointInside(-1, 2);
+            Assert.AreEqual(result, false);
+        }
+
+        [TestMethod]
+        public void TooBigY()
+        {
+            PlayGround playground = new PlayGround(0, 0, 3, 3);
+            var result = playground.IsPointInside(2, 4);
+            Assert.AreEqual(result, false);
+        }
+
+        [TestMethod]
+        public void BothCoordinatesOut()
+        {
+            PlayGround playground = new PlayGround(0, 0, 3, 3);
+            var result = playground.IsPointInside(5, -1);
+            Assert.AreEqual(result, false);
+        }
     }
 }
