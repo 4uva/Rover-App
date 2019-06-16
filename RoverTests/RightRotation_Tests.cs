@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using VehicleModel;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using VehicleModel;
+
 namespace RoverTests
 {
     [TestClass]
@@ -17,6 +18,7 @@ namespace RoverTests
             RoverFacing roverfacing = rover.RoverFacing;
             Assert.AreEqual(RoverFacing.East, roverfacing);
         }
+
         /*6*/
         [TestMethod]
         public void FacingEast()
@@ -26,6 +28,7 @@ namespace RoverTests
             RoverFacing roverfacing = rover.RoverFacing;
             Assert.AreEqual(RoverFacing.South, roverfacing);
         }
+
         /*7*/
         [TestMethod]
         public void FacingSouth()
@@ -35,6 +38,7 @@ namespace RoverTests
             RoverFacing roverfacing = rover.RoverFacing;
             Assert.AreEqual(RoverFacing.West, roverfacing);
         }
+
         /*8*/
         [TestMethod]
         public void FacingWest()

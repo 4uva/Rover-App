@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using VehicleModel;
+
 namespace RoverTests
 {
-
     [TestClass]
     public class MoveForward_Tests
     {
@@ -30,6 +30,7 @@ namespace RoverTests
             Assert.AreEqual(1, rover.RoverPositionX);
             Assert.AreEqual(2, rover.RoverPositionY);
         }
+
         [TestMethod]
         public void StepSouth()
         {
@@ -38,6 +39,7 @@ namespace RoverTests
             Assert.AreEqual(2, rover.RoverPositionX);
             Assert.AreEqual(1, rover.RoverPositionY);
         }
+
         [TestMethod]
         public void StepWest()
         {
