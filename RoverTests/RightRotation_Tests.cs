@@ -25,7 +25,7 @@ namespace RoverTests
         [TestMethod]
         public void FacingEast()
         {
-            Rover rover = new Rover(-2, 0, RoverFacing.East, playGround);
+            Rover rover = new Rover(1, 0, RoverFacing.East, playGround);
             rover.TurnRight();
             RoverFacing roverfacing = rover.RoverFacing;
             Assert.AreEqual(RoverFacing.South, roverfacing);
@@ -35,7 +35,7 @@ namespace RoverTests
         [TestMethod]
         public void FacingSouth()
         {
-            Rover rover = new Rover(0, -2, RoverFacing.South, playGround);
+            Rover rover = new Rover(0, 1, RoverFacing.South, playGround);
             rover.TurnRight();
             RoverFacing roverfacing = rover.RoverFacing;
             Assert.AreEqual(RoverFacing.West, roverfacing);

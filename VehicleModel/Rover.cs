@@ -17,6 +17,8 @@ namespace VehicleModel
             RoverPositionY = roverPositionY;
             RoverFacing = roverFacing;
             this.playGround = playGround;
+            if (!CheckPosition(roverPositionX, roverPositionY))
+                throw new ArgumentException("initial position outside border");
         }
 
         public void MoveForward()
@@ -57,5 +59,7 @@ namespace VehicleModel
                 RoverFacing.North :
                 (RoverFacing)((int)RoverFacing + 1);
         }
+
+        bool CheckPosition(int x, int y) => playGround.IsPointInside(x, y);
     }
 }
