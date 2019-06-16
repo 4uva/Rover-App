@@ -4,7 +4,7 @@ using System.Text;
 
 namespace VehicleModel
 {
-    public class Rover
+    public class Rover : IRover
     {
         public Position Position { get; private set; }
         public RoverFacing Facing { get; private set; }

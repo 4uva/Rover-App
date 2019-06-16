@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\GameModel\GameModel.csproj" />
     <ProjectReference Include="..\VehicleModel\VehicleModel.csproj" />
   </ItemGroup>
 
