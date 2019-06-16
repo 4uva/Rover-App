@@ -46,5 +46,15 @@ namespace RoverTests
             Assert.AreEqual(1, rover.RoverPositionX);
             Assert.AreEqual(0, rover.RoverPositionY);
         }
+
+        [TestMethod]
+        public void StepWestBeforeGrid()
+        {
+            Rover rover = new Rover(0, 0, RoverFacing.West);
+            rover.MoveForward();
+            Assert.AreEqual(0, rover.RoverPositionX);
+            Assert.AreEqual(0, rover.RoverPositionY);
+        }
     }
 }
+
