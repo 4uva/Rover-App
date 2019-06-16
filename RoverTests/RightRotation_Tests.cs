@@ -9,11 +9,13 @@ namespace RoverTests
     [TestClass]
     public class RightRotation_Tests
     {
+        PlayGround playGround = new PlayGround(0, 0, 3, 3);
+
         /*5*/
         [TestMethod]
         public void FacingNorth()
         {
-            Rover rover = new Rover(0, 2, RoverFacing.North);
+            Rover rover = new Rover(0, 2, RoverFacing.North, playGround);
             rover.TurnRight();
             RoverFacing roverfacing = rover.RoverFacing;
             Assert.AreEqual(RoverFacing.East, roverfacing);
@@ -23,7 +25,7 @@ namespace RoverTests
         [TestMethod]
         public void FacingEast()
         {
-            Rover rover = new Rover(-2, 0, RoverFacing.East);
+            Rover rover = new Rover(-2, 0, RoverFacing.East, playGround);
             rover.TurnRight();
             RoverFacing roverfacing = rover.RoverFacing;
             Assert.AreEqual(RoverFacing.South, roverfacing);
@@ -33,7 +35,7 @@ namespace RoverTests
         [TestMethod]
         public void FacingSouth()
         {
-            Rover rover = new Rover(0, -2, RoverFacing.South);
+            Rover rover = new Rover(0, -2, RoverFacing.South, playGround);
             rover.TurnRight();
             RoverFacing roverfacing = rover.RoverFacing;
             Assert.AreEqual(RoverFacing.West, roverfacing);
@@ -43,7 +45,7 @@ namespace RoverTests
         [TestMethod]
         public void FacingWest()
         {
-            Rover rover = new Rover(0, 0, RoverFacing.West);
+            Rover rover = new Rover(0, 0, RoverFacing.West, playGround);
             rover.TurnRight();
             RoverFacing roverfacing = rover.RoverFacing;
             Assert.AreEqual(RoverFacing.North, roverfacing);

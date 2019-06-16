@@ -9,30 +9,39 @@ namespace VehicleModel
         public int RoverPositionX { get; private set; }
         public int RoverPositionY { get; private set; }
         public RoverFacing RoverFacing { get; private set; }
+        private PlayGround playGround;
 
-        public Rover(int roverPositionX, int roverPositionY, RoverFacing roverFacing)
+        public Rover(int roverPositionX, int roverPositionY, RoverFacing roverFacing, PlayGround playGround)
         {
             RoverPositionX = roverPositionX;
             RoverPositionY = roverPositionY;
             RoverFacing = roverFacing;
+            this.playGround = playGround;
         }
 
         public void MoveForward()
         {
+            int candidateXPosition = RoverPositionX;
+            int candidateYPosition = RoverPositionY;
             switch (RoverFacing)
             {
                 case RoverFacing.North:
-                    RoverPositionX--;
+                    candidateXPosition--;
                     break;
                 case RoverFacing.East:
-                    RoverPositionY++;
+                    candidateYPosition++;
                     break;
                 case RoverFacing.South:
-                    RoverPositionX++;
+                    candidateXPosition++;
                     break;
                 case RoverFacing.West:
-                    RoverPositionY--;
+                    candidateYPosition--;
                     break;
+            }
+            if (playGround.IsPointInside(candidateXPosition, candidateYPosition))
+            {
+                RoverPositionX = candidateXPosition;
+                RoverPositionY = candidateYPosition;
             }
         }
 

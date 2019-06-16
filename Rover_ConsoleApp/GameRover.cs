@@ -9,7 +9,8 @@ namespace Rover_ConsoleApp
     {
         public static void Main()
         {
-            Rover rover = new Rover(0, 0, RoverFacing.North);
+            PlayGround playGround = new PlayGround(0, 0, 3, 3);
+            Rover rover = new Rover(0, 0, RoverFacing.North, playGround);
             
             while (true)
             {
