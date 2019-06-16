@@ -10,7 +10,7 @@ namespace Rover_ConsoleApp
         public static void Main()
         {
             PlayGround playGround = new PlayGround(0, 0, 3, 3);
-            Rover rover = new Rover(0, 0, RoverFacing.North, playGround);
+            Rover rover = new Rover(new Position(0, 0), RoverFacing.North, playGround);
             
             while (true)
             {
@@ -29,7 +29,7 @@ namespace Rover_ConsoleApp
                     default:
                         throw new Exception("invalid command");
                 }
-                Console.WriteLine($"Rover is now at {rover.RoverPositionX}, {rover.RoverPositionY} - facing {rover.RoverFacing}");
+                Console.WriteLine($"Rover is now at {rover.Position.X}, {rover.Position.Y} - facing {rover.Facing}");
             }
         }
     }

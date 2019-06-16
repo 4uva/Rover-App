@@ -18,46 +18,45 @@ namespace RoverTests
         [TestMethod]
         public void StepNorth()
         {
-            Rover rover = new Rover(1, 1, RoverFacing.North, playGround);
+            Position start = new Position(1, 1), expectedTarget = new Position(0, 1);
+            Rover rover = new Rover(start, RoverFacing.North, playGround);
             rover.MoveForward();
-            Assert.AreEqual(0, rover.RoverPositionX);
-            Assert.AreEqual(1, rover.RoverPositionY);
+            Assert.AreEqual(expectedTarget, rover.Position);
         }
 
         [TestMethod]
         public void StepEast()
         {
-            Rover rover = new Rover(1, 1, RoverFacing.East, playGround);
+            Position start = new Position(1, 1), expectedTarget = new Position(1, 2);
+            Rover rover = new Rover(start, RoverFacing.East, playGround);
             rover.MoveForward();
-            Assert.AreEqual(1, rover.RoverPositionX);
-            Assert.AreEqual(2, rover.RoverPositionY);
+            Assert.AreEqual(expectedTarget, rover.Position);
         }
 
         [TestMethod]
         public void StepSouth()
         {
-            Rover rover = new Rover(1, 1, RoverFacing.South, playGround);
+            Position start = new Position(1, 1), expectedTarget = new Position(2, 1);
+            Rover rover = new Rover(start, RoverFacing.South, playGround);
             rover.MoveForward();
-            Assert.AreEqual(2, rover.RoverPositionX);
-            Assert.AreEqual(1, rover.RoverPositionY);
+            Assert.AreEqual(expectedTarget, rover.Position);
         }
 
         [TestMethod]
         public void StepWest()
         {
-            Rover rover = new Rover(1, 1, RoverFacing.West, playGround);
+            Position start = new Position(1, 1), expectedTarget = new Position(1, 0);
+            Rover rover = new Rover(start, RoverFacing.West, playGround);
             rover.MoveForward();
-            Assert.AreEqual(1, rover.RoverPositionX);
-            Assert.AreEqual(0, rover.RoverPositionY);
+            Assert.AreEqual(expectedTarget, rover.Position);
         }
 
         [TestMethod]
         public void StepWestBeforeGrid()
         {
-            Rover rover = new Rover(0, 0, RoverFacing.West, playGround);
+            Rover rover = new Rover(new Position(0, 0), RoverFacing.West, playGround);
             rover.MoveForward();
-            Assert.AreEqual(0, rover.RoverPositionX);
-            Assert.AreEqual(0, rover.RoverPositionY);
+            Assert.AreEqual(new Position(0, 0), rover.Position);
         }
     }
 }

@@ -13,11 +13,11 @@ namespace RoverTests
         public void FacingNorth()
         {
             // arrange
-            Rover rover = new Rover(1, 1, RoverFacing.North, playGround);
+            Rover rover = new Rover(new Position(1, 1), RoverFacing.North, playGround);
             // act
             rover.TurnLeft();
             // assert
-            RoverFacing roverfacing = rover.RoverFacing;
+            RoverFacing roverfacing = rover.Facing;
             // (first expected than actual)
             Assert.AreEqual(RoverFacing.West, roverfacing);
         }
@@ -26,9 +26,9 @@ namespace RoverTests
         [TestMethod]
         public void FacingWest()
         {
-            Rover rover = new Rover(1, 1, RoverFacing.West, playGround);
+            Rover rover = new Rover(new Position(1, 1), RoverFacing.West, playGround);
             rover.TurnLeft();
-            RoverFacing roverfacing = rover.RoverFacing;
+            RoverFacing roverfacing = rover.Facing;
             Assert.AreEqual(RoverFacing.South, roverfacing);
         }
 
@@ -36,9 +36,9 @@ namespace RoverTests
         [TestMethod]
         public void FacingSouth()
         {
-            Rover rover = new Rover(0, 2, RoverFacing.South, playGround);
+            Rover rover = new Rover(new Position(0, 2), RoverFacing.South, playGround);
             rover.TurnLeft();
-            RoverFacing roverfacing = rover.RoverFacing;
+            RoverFacing roverfacing = rover.Facing;
             Assert.AreEqual(RoverFacing.East, roverfacing);
         }
 
@@ -46,9 +46,9 @@ namespace RoverTests
         [TestMethod]
         public void FacingEast()
         {
-            Rover rover = new Rover(2, 0, RoverFacing.East, playGround);
+            Rover rover = new Rover(new Position(2, 0), RoverFacing.East, playGround);
             rover.TurnLeft();
-            RoverFacing roverfacing = rover.RoverFacing;
+            RoverFacing roverfacing = rover.Facing;
             Assert.AreEqual(RoverFacing.North, roverfacing);
         }
     }

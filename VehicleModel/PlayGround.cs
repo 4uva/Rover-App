@@ -21,11 +21,11 @@ namespace VehicleModel
             this.yCoordinateMax = yCoordinateMax;
         }
 
-        public bool IsPointInside(int xCoordinate, int yCoordinate)
+        public bool IsPointInside(Position position)
         {
-            if (xCoordinate >= xCoordinateMin && yCoordinate >= yCoordinateMin)
+            if (position.X >= xCoordinateMin && position.Y >= yCoordinateMin)
             {
-                if (xCoordinate <= xCoordinateMax && yCoordinate <= yCoordinateMax) 
+                if (position.X <= xCoordinateMax && position.Y <= yCoordinateMax) 
                     return true;
                 else
                     return false;

@@ -6,60 +6,57 @@ namespace VehicleModel
 {
     public class Rover
     {
-        public int RoverPositionX { get; private set; }
-        public int RoverPositionY { get; private set; }
-        public RoverFacing RoverFacing { get; private set; }
+        public Position Position { get; private set; }
+        public RoverFacing Facing { get; private set; }
         private PlayGround playGround;
 
-        public Rover(int roverPositionX, int roverPositionY, RoverFacing roverFacing, PlayGround playGround)
+        public Rover(Position position, RoverFacing facing, PlayGround playGround)
         {
-            RoverPositionX = roverPositionX;
-            RoverPositionY = roverPositionY;
-            RoverFacing = roverFacing;
+            Position = position;
+            Facing = facing;
             this.playGround = playGround;
-            if (!CheckPosition(roverPositionX, roverPositionY))
+            if (!IsPositionGood(position))
                 throw new ArgumentException("initial position outside border");
         }
 
         public void MoveForward()
         {
-            int candidateXPosition = RoverPositionX;
-            int candidateYPosition = RoverPositionY;
-            switch (RoverFacing)
+            int candidateX = Position.X;
+            int candidateY = Position.Y;
+            switch (Facing)
             {
                 case RoverFacing.North:
-                    candidateXPosition--;
+                    candidateX--;
                     break;
                 case RoverFacing.East:
-                    candidateYPosition++;
+                    candidateY++;
                     break;
                 case RoverFacing.South:
-                    candidateXPosition++;
+                    candidateX++;
                     break;
                 case RoverFacing.West:
-                    candidateYPosition--;
+                    candidateY--;
                     break;
             }
-            if (playGround.IsPointInside(candidateXPosition, candidateYPosition))
-            {
-                RoverPositionX = candidateXPosition;
-                RoverPositionY = candidateYPosition;
-            }
+            Position candidatePosition = new Position(candidateX, candidateY);
+            if (IsPositionGood(candidatePosition))
+                Position = candidatePosition;
         }
 
         public void TurnLeft()
         {
-            RoverFacing = RoverFacing == RoverFacing.North ?
+            Facing = Facing == RoverFacing.North ?
                 RoverFacing.West :
-                (RoverFacing)((int)RoverFacing - 1);
-        }
-        public void TurnRight()
-        {
-            RoverFacing = RoverFacing == RoverFacing.West ?
-                RoverFacing.North :
-                (RoverFacing)((int)RoverFacing + 1);
+                (RoverFacing)((int)Facing - 1);
         }
 
-        bool CheckPosition(int x, int y) => playGround.IsPointInside(x, y);
+        public void TurnRight()
+        {
+            Facing = Facing == RoverFacing.West ?
+                RoverFacing.North :
+                (RoverFacing)((int)Facing + 1);
+        }
+
+        bool IsPositionGood(Position position) => playGround.IsPointInside(position);
     }
 }

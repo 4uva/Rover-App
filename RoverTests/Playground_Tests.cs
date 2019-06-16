@@ -13,7 +13,7 @@ namespace RoverTests
         public void Inside()
         {
             PlayGround playground = new PlayGround(0, 0, 3, 3);
-            var result = playground.IsPointInside(1, 1);
+            var result = playground.IsPointInside(new Position(1, 1));
             Assert.AreEqual(result, true);
         }
 
@@ -21,7 +21,7 @@ namespace RoverTests
         public void OnBorder()
         {
             PlayGround playground = new PlayGround(0, 0, 3, 3);
-            var result = playground.IsPointInside(0, 3);
+            var result = playground.IsPointInside(new Position(0, 3));
             Assert.AreEqual(result, true);
         }
 
@@ -29,7 +29,7 @@ namespace RoverTests
         public void TooSmallX()
         {
             PlayGround playground = new PlayGround(0, 0, 3, 3);
-            var result = playground.IsPointInside(-1, 2);
+            var result = playground.IsPointInside(new Position(-1, 2));
             Assert.AreEqual(result, false);
         }
 
@@ -37,7 +37,7 @@ namespace RoverTests
         public void TooBigY()
         {
             PlayGround playground = new PlayGround(0, 0, 3, 3);
-            var result = playground.IsPointInside(2, 4);
+            var result = playground.IsPointInside(new Position(2, 4));
             Assert.AreEqual(result, false);
         }
 
@@ -45,7 +45,7 @@ namespace RoverTests
         public void BothCoordinatesOut()
         {
             PlayGround playground = new PlayGround(0, 0, 3, 3);
-            var result = playground.IsPointInside(5, -1);
+            var result = playground.IsPointInside(new Position(5, -1));
             Assert.AreEqual(result, false);
         }
     }
